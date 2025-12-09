@@ -3,7 +3,7 @@ package sample;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public abstract class MyShape {
+public abstract class MyShape implements Cloneable {
     private double x1;
     private double y1;
     private double x2;
@@ -26,7 +26,7 @@ public abstract class MyShape {
         this.y2 = y2;
     }
 
-    public void setC(Color c) {
+    public void setColor(Color c) {
         this.c = c;
     }
 
@@ -51,4 +51,7 @@ public abstract class MyShape {
     }
 
     public abstract void drawIt(GraphicsContext gc);
+
+    @Override
+    protected abstract MyShape clone() throws CloneNotSupportedException;
 }
